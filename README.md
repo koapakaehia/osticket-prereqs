@@ -5,11 +5,6 @@
 <h1>osTicket - Prerequisites and Installation</h1>
 This tutorial outlines the prerequisites and installation of the open-source help desk ticketing system osTicket.<br />
 
-
-<h2>Video Demonstration</h2>
-
-- ### [YouTube: How To Install osTicket with Prerequisites](https://www.youtube.com)
-
 <h2>Environments and Technologies Used</h2>
 
 - Microsoft Azure (Virtual Machines/Compute)
@@ -19,14 +14,15 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <h2>Operating Systems Used</h2>
 
 - Windows 10 (21H2)
+- Mac OS
 
 <h2>List of Prerequisites</h2>
 
-- Also 1
-- Also 2
-- Also 3
-- Also 4
-- Also 5
+- Set up IIS on Windows, ensuring CGI and Common HTTP features are installed/enabled
+- Install the Web Platform Installer
+- Set up MySQL, including the configuration of a username and password
+- Configure permissions and execute the osTicket installation
+- Enable the necessary osTicket extensions: php_imap.dll, php_intl.dll, php_opcache.dll
 
 <h2>Installation Steps</h2>
 
