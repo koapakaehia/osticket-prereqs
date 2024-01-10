@@ -30,12 +30,11 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Start by creating a Resource Group (RG) for our Windows 10 Virtual Machine on Microsoft Azure</b>
+<b>PART 1: CREATE VIRTUAL MACHINE IN AZURE</b>
 
-- Name your new RG "RG-osTicket."
-- Choose the region where the server will be located; in this case, select West US 3.
-- Click on "Review + Create," ensure that validation passes, and then click "Create."
-Step 4: Continue with the creation of your Windows 10 Virtual Machine.
+<b>1. Create a Resource Group:</b>
+- Name: rg-osticket
+- Choose the same region for all resources.
 </p>
 <br />
 
@@ -43,14 +42,14 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Search for "Virtual Machine (VM)" in the search bar and proceed to create a Windows 10 VM with 4 vCPUs within the resource group created in the previous step.</b>
 
-- Name it VM1
-- Region will be the same as your RG.
-- Create your username and password, so we can RDP (Remote Desktop Protocol) into it later.
-- Don't forget to scroll down and check liscencing box.
-- Click Next: Disks and Next: Networking.
-- Allow a new Virtual Network (Vnet) to be created when making your Virtual Machine.
+<b>2. Create Windows 10 VM:</b>
+
+- Name: Vm-osticket
+- Username: labuser (customizable)
+- Password: osTicketPassword1! (customizable)
+- Allow VM to create a new Virtual Network (Vnet).
+- Log in to the Virtual Machine using Remote Desktop for macOS.
 </p>
 <br />
 
@@ -58,10 +57,10 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>After the creation process is complete, we will utilize remote desktop to connect to our VM.</b>
+<b>PART 2: INSTALLATION</b>
 
-- Retrieve the public IP address and paste it into Microsoft Remote Desktop (download it for Mac OS if needed).
-- Connect to the VM using the previously set username and password.
+1. Prepare Installation Files:
+  - Download osTicket installation files from [Google Drive](https://drive.google.com/drive/u/1/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6).
 </p>
 <br />
 
@@ -69,10 +68,14 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Continue with the certification and access https://drive.google.com/drive/u/0/folders/1APMfNyfNzcxZC6EzdaNfdZsUwxWYChf6 to install the required prerequisites.</b>
+2. IIS and Additional Components:
 
-- Retrieve the public IP address and paste it into Microsoft Remote Desktop (download it for Mac OS if needed).
-- Connect to the VM using the previously set username and password.
+  a. Install/Enable IIS in Windows:
+  - World Wide Web Services -> Application Development Features:
+    - [X] CGI
+    - [X] Common HTTP Features
+  - Internet Information Services -> Web Management Tools -> IIS Management Console:
+    - [X] IIS Management Console
 </p>
 <br />
 
@@ -80,12 +83,7 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>In your Windows VM, open the Run dialog, type "control," and navigate to Programs.</b>
-
-- Access "Turn Windows features on or off."
-- Install/Enable IIS (Internet Information Services) in Windows with CGI and Common HTTP Features.
-- Include IIS Management Console in the installation.
-<p>
+b. Download and install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi).
 </p>
 <br />
 
@@ -93,8 +91,7 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>If you have followed the instructions accurately, open your web browser and enter 127.0.0.1; it should redirect you to the IIS "page."</b>
-<p>
+c. Download and install the Rewrite Module (rewrite_amd64_en-US.msi).
 </p>
 <br />
 
@@ -102,10 +99,7 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>With the installation files provided earlier, we can now proceed to install the prerequisites.</b>
-
-- Download and install PHP Manager for IIS using the file named PHPManagerForIIS_V1.5.0.msi.
-<p>
+d. Create the directory C:\PHP.
 </p>
 <br />
 
@@ -113,8 +107,10 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Download and install the Rewrite Module using the file named rewrite_amd64_en-US.msi.
-<p>
+e. Download PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip), unzip into C:\PHP.
+  
+  - If prompted, choose "Keep" for the file.
+  - If difficulties persist, try downloading via Google Chrome.
 </p>
 <br />
 
@@ -122,8 +118,7 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Establish the directory C:\PHP.
-<p>
+f. Download and install VC_redist.x86.exe.
 </p>
 <br />
 
@@ -131,8 +126,13 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Download PHP version 7.3.8 from the provided link (php-7.3.8-nts-Win32-VC15-x86.zip) and extract the contents into the C:\PHP directory.
-<p>
+<b>3. MySQL Installation:</b>
+
+- Download and install MySQL 5.5.62 (mysql-5.5.62-win32.msi):
+  - Typical Setup.
+  - Launch Configuration Wizard after install.
+  - Standard Configuration.
+  - Set the password to "Password1."
 </p>
 <br />
 
@@ -140,8 +140,13 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Download and install VC_redist.x86.exe.
-<p>
+<b>4. Configure IIS and PHP:</b>
+
+a. Open IIS as an Admin.
+
+b. Register PHP within IIS.
+
+c. Reload IIS (Stop and Start the server).
 </p>
 <br />
 
@@ -149,12 +154,18 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Download and install MySQL version 5.5.62 using the file named mysql-5.5.62-win32.msi and follow the typical setup.</b>
+<b>5. Install osTicket v1.15.8:</b>
 
-- Launch the Configuration Wizard after installation.
-- Choose the Standard Configuration option.
-- Create a password as part of the configuration process.
-<p>
+a. Download osTicket from the Installation Files Folder.
+
+b. Extract and copy the "upload" folder to C:\inetpub\wwwroot.
+
+c. Rename "upload" to "osTicket" within C:\inetpub\wwwroot.
+
+d. Reload IIS (Stop and Start the server).
+
+e. Go to sites -> Default -> osTicket.
+  - On the right, click "Browse *:80."
 </p>
 <br />
 
@@ -162,8 +173,18 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Launch IIS with administrative privileges.
-<p>
+<b>6. Enable PHP Extensions:</b>
+
+a. In IIS, go to sites -> Default -> osTicket.
+
+b. Double-click PHP Manager.
+
+c. Click "Enable or disable an extension":
+  - Enable: php_imap.dll
+  - Enable: php_intl.dll
+  - Enable: php_opcache.dll.
+
+d. Refresh the osTicket site in your browser and observe changes.
 </p>
 <br />
 
@@ -171,10 +192,14 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Register PHP within IIS.</b>
+<b>7. Configure osTicket:</b>
 
-- Restart IIS.
-<p>
+a. Rename: ost-config.php
+  - From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
+  - To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
+b. Assign Permissions to ost-config.php:
+  - Disable inheritance -> Remove All.
+  - New Permissions -> Everyone -> All.
 </p>
 <br />
 
@@ -182,8 +207,11 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- Download and install osTicket version 1.15.8 from the provided files.
-<p>
+<b>8. Setting up osTicket:</b>
+
+a. Continue setting up osTicket in the browser by clicking "Continue."
+
+b. Name the Helpdesk and set a default email (to receive customer emails).
 </p>
 <br />
 
@@ -191,8 +219,19 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-- To apply changes, restart Internet Information Services (IIS).
-<p>
+<b>9. Database Setup:</b>
+
+a. Download and install HeidiSQL.
+
+b. Open Heidi SQL, create a new session (root/Password1), and connect.
+
+c. Create a database called "osTicket."
+
+d. Continue setting up osTicket in the browser:
+  - MySQL Database: osTicket
+  - MySQL Username: root
+  - MySQL Password: Password1
+  - Click "Install Now!"
 </p>
 <br />
 
@@ -200,10 +239,9 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Navigate to "Sites," then select "Default," and finally, access "osTicket."</b>
+<b>10. Verify Installation:</b>
 
-- On the right, click "Browse *:80" to access the designated site.
-<p>
+- Congratulations! Check for errors by browsing to the help desk login page: http://localhost/osTicket/scp/login.php.
 </p>
 <br />
 
@@ -211,11 +249,10 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Please take note that some extensions are not currently enabled."</b>
+<b>Clean Up</b>
 
-- Return to IIS, go to "Sites," then choose "Default," and access "osTicket." Double-click on PHP Manager.
-- Click on "Enable or disable an extension."
-<p>
+- Delete: C:\inetpub\wwwroot\osTicket\setup.
+- Set Permissions to "Read" only for C:\inetpub\wwwroot\osTicket\include\ost-config.php.
 </p>
 <br />
 
@@ -223,122 +260,9 @@ Step 4: Continue with the creation of your Windows 10 Virtual Machine.
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-<b>Enable the following extensions:</b>
+<b>Notes:</b>
 
-- php_imap.dll
-- php_intl.dll
-- php_opcache.dll
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-- Refresh the osTicket site in your browser and observe the changes.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Before proceeding, rename the file ost-config.php.</b>
-
-- Copy the contents from C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php.
-- Paste the contents into C:\inetpub\wwwroot\osTicket\include\ost-config.php.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Assign permissions to the ost-config.php file.</b>
-
-- Disable inheritance and remove all existing permissions.
-- Apply new permissions for Everyone with full access.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-- Grant full control and apply the permissions.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Proceed with the osTicket setup.</b>
-
-- Name: Helpdesk
-- Default email (receives email from customers): [Enter Email]
-- Enter Admin info:
-- Name: [Admin Name]
-- Email: [Admin Email]
-- Create a username and password.
-- Complete the next step before continuing.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Download and install HeidiSQL.</b>
-
-- Open Heidi SQL.
-- Create a new session with the credentials root/Password1.
-- Connect to the session.
-- Create a database named "osTicket."
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Continue the osTicket setup in your browser and scroll down to the Database Settings section.</b>
-
-- MySQL Database: osTicket
-- MySQL Username: root
-- MySQL Password: Password1
-- Click "Install Now!"
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Perform the final cleanup steps.</b>
-
-- Delete: C:\inetpub\wwwroot\osTicket\setup
-- Set Permissions to "Read" only for: C:\inetpub\wwwroot\osTicket\include\ost-config.php.
-<p>
-</p>
-<br />
-
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Great! You've completed the installation of osTicket on a Windows 10 Virtual Machine using Microsoft Azure.</b>
-
-- Access your help desk login page: http://localhost/osTicket/scp/login.php
-- For end-users, use the osTicket URL: http://localhost/osTicket/
-<p>
+- Help Desk Login Page: http://localhost/osTicket/scp/login.php
+- End Users osTicket URL: http://localhost/osTicket/
 </p>
 <br />
