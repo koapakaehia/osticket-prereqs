@@ -27,13 +27,13 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <h2>Installation Steps</h2>
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/DfaC9eK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>PART 1: CREATE VIRTUAL MACHINE IN AZURE</b>
 
 <b>1. Create a Resource Group:</b>
-- Name: rg-osticket
+- Name: Rg-osTicket
 - Choose the same region for all resources.
 </p>
 <br />
