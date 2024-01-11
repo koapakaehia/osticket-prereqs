@@ -186,7 +186,7 @@ f. Download and install VC_redist.x86.exe.
 <b>4. Configure IIS and PHP:</b>
 
 a. Open IIS as an Admin.
-  - In wondows search IIS.
+  - In windows search IIS.
   - Right, click and select Run as administrator.
 </p>
 <br />
