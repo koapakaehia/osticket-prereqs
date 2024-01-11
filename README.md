@@ -39,22 +39,32 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/QAw8InZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+
+<p>
+<img src="https://i.imgur.com/ADelcgy.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 
 <b>2. Create Windows 10 VM:</b>
 
-- Name: Vm-osticket
+- Name: VM1
 - Username: labuser (customizable)
 - Password: osTicketPassword1! (customizable)
 - Allow VM to create a new Virtual Network (Vnet).
+
+<p>
+<img src="https://i.imgur.com/lG0Q9S0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 - Log in to the Virtual Machine using Remote Desktop for macOS.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/58id1JR.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>PART 2: INSTALLATION</b>
@@ -65,12 +75,25 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/0ruwH46.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 2. IIS and Additional Components:
 
   a. Install/Enable IIS in Windows:
+  - Open the control panel:
+    - Search the Run dialog.
+    - Type control and press Enter.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/yrR8bol.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  
+  - Navigate to "Programs" -> "Programs and Features":
+    - Click on "Turn Windows features on or off" on the left side.
   - World Wide Web Services -> Application Development Features:
     - [X] CGI
     - [X] Common HTTP Features
@@ -80,7 +103,15 @@ This tutorial outlines the prerequisites and installation of the open-source hel
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/nwd3MO4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+b. - If done correctly, open up your web browser and type 127.0.0.1 and it should redirect you IIS "page."
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/r00IkuZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 b. Download and install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi).
@@ -88,7 +119,7 @@ b. Download and install PHP Manager for IIS (PHPManagerForIIS_V1.5.0.msi).
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/35dGFfL.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 c. Download and install the Rewrite Module (rewrite_amd64_en-US.msi).
@@ -96,26 +127,34 @@ c. Download and install the Rewrite Module (rewrite_amd64_en-US.msi).
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/kpYSWsQ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
+
 d. Create the directory C:\PHP.
+  - In your Files
+  - Go to "This PC"
+  - "C Drive"
+  - Create New folder "PHP"
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/sXE98PZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-e. Download PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip), unzip into C:\PHP.
   
+e. Download PHP 7.3.8 (php-7.3.8-nts-Win32-VC15-x86.zip), unzip into C:\PHP.
+  - Download the file and right click once finished.
+    - Select "Extract All"
+  - Browse and extract to your newly created folder "C:\PHP."
   - If prompted, choose "Keep" for the file.
   - If difficulties persist, try downloading via Google Chrome.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/EHn1UF0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 f. Download and install VC_redist.x86.exe.
@@ -123,7 +162,11 @@ f. Download and install VC_redist.x86.exe.
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/urg4bSZ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/SjJqnGO.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>3. MySQL Installation:</b>
@@ -137,14 +180,31 @@ f. Download and install VC_redist.x86.exe.
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/KTNm3yq.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>4. Configure IIS and PHP:</b>
 
 a. Open IIS as an Admin.
+  - In wondows search IIS.
+  - Right, click and select Run as administrator.
+</p>
+<br />
+
+<p>
+<img src="https://i.imgur.com/2F2Cqlt.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/pvkZ7V4.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 
 b. Register PHP within IIS.
+- In PHP Manager
+  - Select Register New  PHP Version  
+  - Click on the 3 dots to browse
+  - Go to This Pc > C Drive > PHP > and select php-cgi
 
 c. Reload IIS (Stop and Start the server).
 </p>
