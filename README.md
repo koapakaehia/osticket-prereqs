@@ -249,7 +249,11 @@ e. In IIS. Go to sites -> Default -> osTicket.
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/ouLqy5q.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/JZnx7rM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>6. Enable PHP Extensions:</b>
@@ -257,18 +261,29 @@ e. In IIS. Go to sites -> Default -> osTicket.
 a. In IIS, go to sites -> Default -> osTicket.
 
 b. Double-click PHP Manager.
+<p>
+<img src="https://i.imgur.com/JZnx7rM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/iBumfAm.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 
 c. Click "Enable or disable an extension":
   - Enable: php_imap.dll
   - Enable: php_intl.dll
   - Enable: php_opcache.dll.
-
+<p>
+<img src="https://i.imgur.com/1oWeJG3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 d. Refresh the osTicket site in your browser and observe changes.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/FniQptc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>7. Configure osTicket:</b>
@@ -276,6 +291,11 @@ d. Refresh the osTicket site in your browser and observe changes.
 a. Rename: ost-config.php
   - From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
   - To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
+<p>
+<img src="https://i.imgur.com/FniQptc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+
 b. Assign Permissions to ost-config.php:
   - Disable inheritance -> Remove All.
   - New Permissions -> Everyone -> All.
