@@ -292,39 +292,75 @@ a. Rename: ost-config.php
   - From: C:\inetpub\wwwroot\osTicket\include\ost-sampleconfig.php
   - To: C:\inetpub\wwwroot\osTicket\include\ost-config.php
 <p>
-<img src="https://i.imgur.com/FniQptc.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/WgueIIX.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 
 b. Assign Permissions to ost-config.php:
+  - Right-click ost-config.php -> properties.
+  - Select Security -> Advanced.
+<p>
+<img src="https://i.imgur.com/f1TzJeV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+  
   - Disable inheritance -> Remove All.
-  - New Permissions -> Everyone -> All.
+<p>
+<img src="https://i.imgur.com/YqArCHa.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+ 
+  - Select Security -> Advanced.
+  - Permissions -> Enable Inheritance.
+  - For Name type "Everyone" -> Check Namnes -> OK
+  - Check all basics permisions (not Special Permissions) -> OK.
+  - Verify Permissions for Everyone -> OK.
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pG3PrQi.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/asHyxrj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>8. Setting up osTicket:</b>
 
 a. Continue setting up osTicket in the browser by clicking "Continue."
-
-b. Name the Helpdesk and set a default email (to receive customer emails).
+  - Name Helpdesk
+  - Default email (receives email from customers)
+  - Enter Admin info
+  - Create username and password
+  - Do next step before continuing
 </p>
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/XRBu44i.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>9. Database Setup:</b>
 
 a. Download and install HeidiSQL.
+  - Check Launch HeidiSQL -> Finish.  
+<p>
+<img src="https://i.imgur.com/YogFn08.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+<p>
+<img src="https://i.imgur.com/2K2yVnT.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 
 b. Open Heidi SQL, create a new session (root/Password1), and connect.
 
 c. Create a database called "osTicket."
+<p>
+<img src="https://i.imgur.com/tJsnoGP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 
 d. Continue setting up osTicket in the browser:
   - MySQL Database: osTicket
@@ -335,7 +371,7 @@ d. Continue setting up osTicket in the browser:
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/z4x0jbY.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>10. Verify Installation:</b>
@@ -345,23 +381,21 @@ d. Continue setting up osTicket in the browser:
 <br />
 
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/UQFbcdB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 <b>Clean Up</b>
 
 - Delete: C:\inetpub\wwwroot\osTicket\setup.
+<p>
+<img src="https://i.imgur.com/L5KhfM5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+
 - Set Permissions to "Read" only for C:\inetpub\wwwroot\osTicket\include\ost-config.php.
-</p>
-<br />
 
-<p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-<b>Notes:</b>
-
-- Help Desk Login Page: http://localhost/osTicket/scp/login.php
-- End Users osTicket URL: http://localhost/osTicket/
+<b>That concludes the installation of osTicket on a Windows 10 Virtual Machine using Microsoft Azure.</b>
+  - Help Desk Login Page: http://localhost/osTicket/scp/login.php
+  - End Users osTicket URL: http://localhost/osTicket/
 </p>
 <br />
