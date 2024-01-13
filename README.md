@@ -393,6 +393,10 @@ d. Continue setting up osTicket in the browser:
 <p>
 
 - Set Permissions to "Read" only for C:\inetpub\wwwroot\osTicket\include\ost-config.php.
+<p>
+<img src="https://i.imgur.com/5RJFOsK.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
 
 <b>That concludes the installation of osTicket on a Windows 10 Virtual Machine using Microsoft Azure.</b>
   - Help Desk Login Page: http://localhost/osTicket/scp/login.php
